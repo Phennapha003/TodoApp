@@ -1,0 +1,29 @@
+<%- include('header') -%>
+<div class="header">
+    <div class="overlay"></div>
+    <div class="header-content">
+        <div class="header-title"><%=taskTitle%></div>
+        <h1 class="header-title"><%=today%></h1>
+        <div class="header-subtitle">
+            <form action="/" method="post">
+                <input type="hidden" name="type" value="<%=taskTitle%>">
+                <div class="card">
+                    <% tasks.forEach(item => { %>
+                    <div class="item">
+                        <input type="checkbox">
+                        <p><%= item %></p>
+                        <button class="btn-delete" type="submit" name="delete" value="<%=item%>">-</button>
+                    </div>
+                    <% }) %>
+
+                    <div class="item">
+                        <input type="text" name="newTask" placeholder="new task">
+                        <button type="submit">+</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('footer') -%>
